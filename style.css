@@ -13,11 +13,25 @@
   [aos="fade"].aos-animate {
     opacity: 1;
   }
-.colTable {
+  /*colTable {
     float: left;
     width: 33.3%;
     padding: 30px;
     box-sizing: border-box;
+}*/
+/* Tarjeta base */
+.colTable {
+    width: 33.33%;
+    padding: 30px;
+    box-sizing: border-box;
+}
+
+.rowTable {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* o space-between/space-around si prefieres */
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 .price-box {
@@ -186,22 +200,24 @@
     left: 0;
     color: green; /* Cambia el color si es necesario */
 }
+
 html {
     scroll-behavior: smooth;
 }
-@media(max-width:768px){
-  .col {
-    width: 100%;
-}
+@media (max-width: 768px) {
+    .colTable {
+        width: 100%;
+        padding: 10px;
+    }
 }
 @media(min-width:800){
   .col {
     padding: 10px;
 }
 }
-@media  (max-width: 1024px) 
-{
-    .col {
-    padding: 10px;
-}
+@media (max-width: 1024px) {
+    .colTable {
+        width: 100%;
+        padding: 20px;
+    }
 }
