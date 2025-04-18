@@ -7,7 +7,66 @@ Description: The Template is created for web template
 Tags: html5, css3, sass, gulp, bootstrap grid
 Version: 2.0.0
 */
+.about-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center; /* Esto centra mejor el contenido */
+  gap: 10px;
+  padding: 12px 24px;
+  font-size: 1rem; /* Tamaño de texto base */
+  font-weight: bold;
+  border: 2px solid transparent;
+  border-radius: 8px;
+  text-decoration: none;
+  background: linear-gradient(white, white) padding-box,
+              linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(16,62,125,1) 0%, rgba(24,106,220,1) 100%) border-box;
+  color: #1842a0;
+  transition: all 0.3s ease;
+  max-width: 100%; /* No se sale de su contenedor */
+  box-sizing: border-box; /* Para que padding no lo rompa */
+  text-align: center; /* Centrado de texto */
+}
 
+.about-button:hover {
+  background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(16,62,125,1) 0%, rgba(24,106,220,1) 100%);
+  color: white;
+}
+
+.about-button .icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 768px) {
+  .about-button {
+    padding: 10px 20px;
+    font-size: 0.95rem;
+    gap: 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    gap: 6px;
+  }
+}
+  @media(min-width:800){
+ .about-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    gap: 6px;
+  }
+}
+@media (max-width: 1024px) {
+ .about-button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    gap: 6px;
+  }
+}
 :root {
     --font-family: "Source Sans Pro";
     --font-size: 16px;
@@ -2704,6 +2763,7 @@ textarea {
 .header {
     position: relative;
     width: 100%;
+    
 }
 
 .header.fixed {
@@ -2892,6 +2952,7 @@ body.mmm-open .mmm {
 .main-mnu-list {
     display: inline-flex;
     margin-left: -1.5rem;
+    gap: 3rem;
 }
 
 .main-mnu-list.hide {
@@ -2937,14 +2998,18 @@ body.mmm-open .mmm {
 }
 
 .main-mnu-list > li a {
-    color: var(--text-primary);
-    position: relative;
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    font-size: 1rem;
+  color: var(--text-primary);
+  position: relative;
+  display: inline-flex; /* Mejor inline-flex para texto */
+  align-items: center;
+  text-decoration: none;
+  font-size: 1.1rem; /* Un poquito más grande */
+  font-weight: 500; /* Texto más sólido */
+  letter-spacing: 0.5px; /* Espaciado de letras sutil */
+  transition: color 0.3s ease, transform 0.3s ease; /* Animación suave */
+  font-weight: 501;
 }
-
+ 
 .main-mnu-btn {
     position: relative;
     display: block;
@@ -3160,11 +3225,24 @@ body.mmm-open .mmm {
 .heading-right .section-desc {
     margin-left: auto;
 }
-
 .section-subheading {
-    margin-bottom: 0.3125rem;
-    text-transform: uppercase;
-    color: var(--accent-color);
+  color: #888;
+  font-size: 18px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 10px;
+}
+
+.section-heading {
+  margin-bottom: 50px;
+}
+
+
+
+.section-heading h2 {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 20px;
 }
 
 .section-desc {
@@ -3389,7 +3467,7 @@ body.mmm-open .mmm {
     }
 
     .logo img {
-        max-height: 2.25rem;
+        max-height: 5.3rem;
     }
 
     .section-heading {
