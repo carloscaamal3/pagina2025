@@ -31,19 +31,25 @@
     flex-wrap: wrap;
     justify-content: center; /* o space-between/space-around si prefieres */
     margin: 0 auto;
-    max-width: 1200px;
+    max-width: 1358px;
 }
-
 .price-box {
     background: #fff;
     color: #555;
     list-style-type: none;
     margin: 0;
-    padding: 0;
-    transition: 0.3s;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
     border-radius: 10px;
     box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.38);
 }
+
+/* Efecto al pasar el mouse */
+.price-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+
 .best {
     border-style: solid;
     border-width: 3px;
@@ -100,7 +106,7 @@
 }
 
 .value {
-    font-size: 100px;
+    font-size: 45px;
     color: rgb(255, 255, 255);
     font-weight: bold;
     /*  line-height: 0.24;*/

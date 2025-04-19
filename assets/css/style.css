@@ -484,7 +484,7 @@ blockquote footer {
     padding-left: 1.75rem;
 }
 
-.content ul li::before, .content ol li::before,
+/*.content ul li::before, .content ol li::before,
     .entry-content ul li::before,
     .entry-content ol li::before {
     position: absolute;
@@ -504,7 +504,7 @@ blockquote footer {
     font-size: 1.125rem;
     height: calc(1rem * var(--line-height));
     min-width: 1.5rem;
-}
+}*/
 
 .content ul li > *,
 .entry-content ul li > * {
@@ -2542,9 +2542,41 @@ textarea {
         padding-left: 1rem;
         padding-right: 1rem;
     }
+    .price-box {
+    background: #fff;
+    color: #555;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.38);
+}
+
+/* Efecto al pasar el mouse */
+.price-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
 }
 
 @media only screen and (max-width: 767.98px), only screen and (min-width: 567px) and (max-width: 900px) and (orientation: landscape) {
+    .price-box {
+    background: #fff;
+    color: #555;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.38);
+}
+
+/* Efecto al pasar el mouse */
+.price-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
     .news-item {
         max-width: 21.875rem;
         margin: 0 auto;
@@ -2608,6 +2640,22 @@ textarea {
 }
 
 @media only screen and (min-width: 480px) {
+    .price-box {
+    background: #fff;
+    color: #555;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.38);
+}
+
+/* Efecto al pasar el mouse */
+.price-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
     .brands-item {
         height: 12rem;
     }
@@ -2756,6 +2804,22 @@ textarea {
         left: 0;
         top: 0;
     }
+    .price-box {
+    background: #fff;
+    color: #555;
+    list-style-type: none;
+    margin: 0;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-radius: 10px;
+    box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.38);
+}
+
+/* Efecto al pasar el mouse */
+.price-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
 }
 
 /* === 6. Layouts === */
