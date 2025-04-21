@@ -194,7 +194,9 @@
 							</div>
 						</div>
 						<div class="col-xl-8 col-md-7 content-item">
-							<form  method="post"  class="form-submission contact-form contact-form-padding" novalidate>
+							<!--<form  method="post"  class="form-submission contact-form contact-form-padding" novalidate>-->
+                                <form action="send-mail.php" method="POST" class="form-submission contact-form contact-form-padding" novalidate>
+
 								<input type="hidden" name="Subject" value="Contact form">
 								<div class="row gutters-default">
 									<div class="col-12">
@@ -230,6 +232,7 @@
 								</div>
 							</form>
 						</div>
+                        <!---->
 					</div>
 				</div>
 			</div>

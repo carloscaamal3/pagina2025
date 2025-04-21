@@ -30,8 +30,108 @@
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 
 </head>
+<style>
 
+
+/* ======================== */
+.contenedor{   
+    display: grid;
+    place-content: center;
+    height: 100vh;
+}
+.cargando{
+    width: 190px;
+    height: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    justify-content: space-between;
+  margin: 0 auto; 
+}
+.texto-cargando{ 
+  padding-top:20px
+}
+.cargando span{
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.pelotas {
+    width: 30px;
+    height: 30px;
+    background-color: #00b8de;
+    animation: salto .5s alternate
+    infinite;
+  border-radius: 50%  
+}
+.pelotas:nth-child(1) {
+    animation-delay: 0s;
+}
+.pelotas:nth-child(2) {
+    animation-delay: 0.1s;
+}
+.pelotas:nth-child(3) {
+    animation-delay: 0.2s;
+}
+.pelotas:nth-child(4) {
+    animation-delay: 0.3s;
+}
+.pelotas:nth-child(5) {
+    animation-delay: 0.4s;
+}
+.pelotas:nth-child(6) {
+    animation-delay: 0.5s;
+}
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #FFF;
+  z-index: 9999; /* encima de todo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+.preloader.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+/* Colores de las bolitas */
+.color1 { background: #e94b35; } /* rojo */
+.color2 { background: #f6c342; } /* amarillo */
+.color3 { background: #4caf50; } /* verde */
+.color4 { background: #2b6edc; } /* azul */
+.color5 { background: #8e44ad; } /* morado */
+@keyframes salto {
+    from {
+        transform: scaleX(1.25);
+    }
+    to{
+        transform: 
+        translateY(-50px) scaleX(1);
+    }
+}</style>
 <body>
+
+
+
+<div class="preloader">
+  <div class="contenedor">
+    <div class="cargando">
+      <div class="pelotas color1"></div>
+      <div class="pelotas color2"></div>
+      <div class="pelotas color3"></div>
+	  <div class="pelotas color4"></div>
+	  <div class="pelotas  color5"></div>
+      <!--<span class="texto-cargando">Cargando...</span>-->
+    </div>
+  </div>
+</div>
+
+
+
 
 	<main class="main">
 		
@@ -230,7 +330,7 @@
 						</div>
 						<div class="section-footer col-12 section-footer-animate">
 							<div class="btn-group align-items-center justify-content-center">
-								<a href="#!" class="about-button">
+								<a href="services.html" class="about-button">
 									<span>Ver precios</span>
 									
 								</a>
@@ -254,7 +354,7 @@
 								<div class="ini-count">01</div>
 								<div class="ini-info">
 									<h3 class="ini-heading item-heading-large">Plataforma de marketing y ventas</h3>
-									<div class="ini-desc">
+									<div class="ini-desc text-justify"">
 										<p>Tu página web puede servir como una poderosa herramienta de marketing y ventas. Puedes promocionar tus productos o servicios, compartir contenido relevante, recopilar información de contacto de clientes potenciales y facilitar el proceso de compra en línea, todo desde un solo lugar.</p>
 									</div>
 								</div>
@@ -267,7 +367,7 @@
 									<h3 class="ini-heading item-heading-large">
 
 										Presencia en línea 24/7</h3>
-									<div class="ini-desc">
+									<div class="ini-desc text-justify"">
 										<p>Una página web te proporciona una presencia en línea permanente, lo que significa que tus clientes pueden encontrarte en cualquier momento, independientemente de la hora o el lugar.</p>
 									</div>
 								</div>
@@ -278,9 +378,9 @@
 								<div class="ini-count">03</div>
 								<div class="ini-info">
 									<h3 class="ini-heading item-heading-large">Credibilidad y profesionalismo</h3>
-									<div class="ini-desc">
+									<div class="ini-desc text-justify"">
 										<p>Una página web bien diseñada y actualizada transmite una imagen de profesionalismo y credibilidad a tus clientes potenciales. 
-											Les muestra que tu negocio está al tanto de las tendencias digitales y comprometido con proporcionar una experiencia de calidad. </p>
+										Les muestra que tu negocio está al tanto de las tendencias digitales y comprometido con proporcionar una experiencia de calidad. </p>
 									</div>
 								</div>
 							</div>
@@ -319,6 +419,13 @@
 							</div>
 						</div>-->
 					</div>
+					<div class="col-12 mt-5 text-center">
+    <img src="assets/img/image2.png" alt="Beneficios de tener un sitio web" 
+         class="img-fluid" 
+         style="max-width: 400px; width: 100%;" 
+         data-aos="fade-up" data-aos-duration="1500">
+</div>
+
 				</div>
 			</section>
 
@@ -418,7 +525,7 @@
 										<!--<div class="reviews-item-position">Regular client</div>-->
 									</div>
 								</div>
-								<div class="reviews-item-text">
+								<div class="reviews-item-text ">
 									<p>El web hosting (alojamiento web) es el servicio que proporciona el espacio en un servidor para
 										 almacenar los archivos de tu sitio web, haciéndolo accesible a través de Internet. </p>
 								</div>
@@ -624,3 +731,10 @@
     color: var(--background-color);
     text-decoration: none;
 }</style>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  setTimeout(function() {
+    document.querySelector('.preloader').classList.add('hidden');
+  }, 1500); // Cambia 3000 a los milisegundos que quieras
+});
+</script>

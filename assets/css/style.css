@@ -3298,7 +3298,8 @@ body.mmm-open .mmm {
 }
 
 .section-heading {
-  margin-bottom: 50px;
+  /*margin-bottom: 50px;*/
+  margin-bottom: -10.7px;
 }
 
 
