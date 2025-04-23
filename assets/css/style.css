@@ -3487,6 +3487,15 @@ body.mmm-open .mmm {
 }
 
 /* === 8. Media === */
+
+@media (max-width: 200px) {
+    .header-fixed .row {
+        margin-left: -0.225rem;
+        margin-right: -0.625rem;
+
+    }
+}
+
 /*==========  Desktop First  ==========*/
 @media (max-width: 1199.98px) {
     .mmm {
@@ -3573,9 +3582,27 @@ body.mmm-open .mmm {
     }
 }
 
-@media (max-width: 575.98px) {
+/*@media (max-width: 575.98px) {
     .item-heading-middle {
         font-size: 1.125rem;
+    }
+}*/
+@media (max-width: 575.98px) {
+    .header-fixed .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .header-fixed .row {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .header-fixed .row .header-fixed-col {
+        padding: 0 0.25rem;
     }
 }
 
@@ -3632,5 +3659,37 @@ body.mmm-open .mmm {
 
     .bff-container p {
         margin: 0;
+    }
+}
+@media (max-width: 299.98px) {
+    .header-fixed .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .header-fixed .row {
+        margin-left: 0;
+        margin-right: 0;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        box-sizing: border-box;
+    }
+
+    .header-fixed .row .header-fixed-col {
+        padding: 0 0.25rem;
+    }
+
+    .mmm {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .logo img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .hover-link {
+        font-size: 0.875rem;
     }
 }
