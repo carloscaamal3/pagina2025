@@ -34,7 +34,7 @@
 
 		},
 
-		form: function(e) {
+		/*form: function(e) {
 
 			e.preventDefault();
 
@@ -47,7 +47,7 @@
 
                 $.ajax({
                     type: "POST",
-                    url: ajaxurl,
+                    //url: ajaxurl,
                     data: th.serialize()
                 }).done(function() {
 
@@ -61,7 +61,7 @@
 
 			}
 
-		},
+		},*/
 
         //=== Form fields ===\\
 		formFields: {

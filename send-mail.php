@@ -1,33 +1,45 @@
 <?php
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $to = "tucorreo@dominio.com";  // <-- Cambia aquí por tu correo real
-    $subject = "Nuevo mensaje del formulario de contacto";
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
-    $name = strip_tags(trim($_POST["Name"]));
-    $phone = strip_tags(trim($_POST["Phone"]));
-    $email = filter_var(trim($_POST["Email"]), FILTER_SANITIZE_EMAIL);
-    $message = trim($_POST["Message"]);
+require 'phpmailer/src/Exception.php';
+require 'phpmailer/src/PHPMailer.php';
+require 'phpmailer/src/SMTP.php';
 
-    // Validamos los campos (opcional pero recomendable)
-    if (empty($name) || empty($phone) || !filter_var($email, FILTER_VALIDATE_EMAIL) || empty($message)) {
-        echo "Por favor, completa todos los campos correctamente.";
-        exit;
-    }
+// Cabecera para que devuelva JSON
+header('Content-Type: application/json');
 
-    $body = "Nombre: $name\n";
-    $body .= "Teléfono: $phone\n";
-    $body .= "Correo: $email\n\n";
-    $body .= "Mensaje:\n$message\n";
+$mail = new PHPMailer(true);
 
-    $headers = "From: $email\r\n";
-    $headers .= "Reply-To: $email\r\n";
+try {
+    // Configuración del servidor SMTP
+    $mail->isSMTP();
+    $mail->Host       = 'smtp.ionos.mx';
+    $mail->SMTPAuth   = true;
+    $mail->Username   = 'contacto@pixelperfect.com.mx'; 
+    $mail->Password   = 'Denovan198611@'; // ⚠️ IMPORTANTE: nunca subas esto a producción sin ocultar la clave
+    $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+    $mail->Port       = 587;
 
-    if (mail($to, $subject, $body, $headers)) {
-        echo "Mensaje enviado correctamente.";
-        // O redirigir:
-        // header("Location: gracias.html"); 
-    } else {
-        echo "Error al enviar el mensaje. Intenta nuevamente.";
-    }
+    // Remitente y destinatario
+    $mail->setFrom('contacto@pixelperfect.com.mx', 'Formulario Enviado de Web');
+    $mail->addReplyTo($_POST['Email'], $_POST['Name']);
+    $mail->addAddress('contacto@pixelperfect.com.mx'); 
+
+    // Contenido del mensaje
+    $mail->isHTML(false);
+    $mail->Subject = $_POST['Subject'] ?? 'Formulario de contacto';
+    $mail->Body    = 
+        "Nombre: {$_POST['Name']}\n" .
+        "Teléfono: {$_POST['Phone']}\n" .
+        "Email: {$_POST['Email']}\n\n" .
+        "Mensaje:\n{$_POST['Message']}";
+
+    $mail->send();
+
+    echo json_encode(['status' => 'success', 'message' => 'Mensaje enviado correctamente.']);
+
+} catch (Exception $e) {
+    http_response_code(500);
+    echo json_encode(['status' => 'error', 'message' => "No se pudo enviar el mensaje. Error: {$mail->ErrorInfo}"]);
 }
-?>

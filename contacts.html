@@ -195,8 +195,7 @@
 						</div>
 						<div class="col-xl-8 col-md-7 content-item">
 							<!--<form  method="post"  class="form-submission contact-form contact-form-padding" novalidate>-->
-                                <form action="send-mail.php" method="POST" class="form-submission contact-form contact-form-padding" novalidate>
-
+                                <form id="contact-form" class="form-submission contact-form contact-form-padding" novalidate>
 								<input type="hidden" name="Subject" value="Contact form">
 								<div class="row gutters-default">
 									<div class="col-12">
@@ -337,6 +336,48 @@
 <script src="assets/libs/pristine/pristine.min.js"></script>
 <script src="assets/js/custom.js"></script>
 <script src="assets/js/forms.js"></script>
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 </body>
 </html>
+<script>
+    document.getElementById('contact-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+    
+      const form = e.target;
+      const formData = new FormData(form);
+    
+      try {
+        const response = await fetch('send-mail.php', {
+          method: 'POST',
+          body: formData
+        });
+    
+        const result = await response.json(); // ← ahora leemos JSON
+    
+        if (result.status === 'success') {
+          Swal.fire({
+            icon: 'success',
+            title: '¡Mensaje enviado!',
+            text: result.message,
+            confirmButtonText: 'Cerrar'
+          });
+          form.reset();
+        } else {
+          throw new Error(result.message);
+        }
+    
+      } catch (error) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: error.message || 'Error al enviar el formulario',
+          confirmButtonText: 'Cerrar'
+        });
+        console.error('Error:', error);
+      }
+    });
+    </script>
+    
+    
